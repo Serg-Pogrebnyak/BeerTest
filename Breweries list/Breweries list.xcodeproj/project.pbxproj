@@ -12,6 +12,8 @@
 		0BE78F702448B64D00478E28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F6E2448B64D00478E28 /* Main.storyboard */; };
 		0BE78F722448B65000478E28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F712448B65000478E28 /* Assets.xcassets */; };
 		0BE78F752448B65000478E28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F732448B65000478E28 /* LaunchScreen.storyboard */; };
+		0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */; };
+		0BE78F7F2448B80900478E28 /* BreweriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0BE78F712448B65000478E28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BE78F742448B65000478E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BE78F762448B65000478E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweriesTableViewCell.swift; sourceTree = "<group>"; };
+		0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweriesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				0BE78F712448B65000478E28 /* Assets.xcassets */,
 				0BE78F732448B65000478E28 /* LaunchScreen.storyboard */,
 				0BE78F762448B65000478E28 /* Info.plist */,
+				0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */,
+				0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */,
 			);
 			path = "Breweries list";
 			sourceTree = "<group>";
@@ -124,6 +130,7 @@
 			files = (
 				0BE78F752448B65000478E28 /* LaunchScreen.storyboard in Resources */,
 				0BE78F722448B65000478E28 /* Assets.xcassets in Resources */,
+				0BE78F7F2448B80900478E28 /* BreweriesTableViewCell.xib in Resources */,
 				0BE78F702448B64D00478E28 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BE78F6D2448B64D00478E28 /* ViewController.swift in Sources */,
+				0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */,
 				0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
