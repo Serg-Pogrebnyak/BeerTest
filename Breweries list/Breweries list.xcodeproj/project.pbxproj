@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		0BE78F752448B65000478E28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F732448B65000478E28 /* LaunchScreen.storyboard */; };
 		0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */; };
 		0BE78F7F2448B80900478E28 /* BreweriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */; };
+		0BE78F812448BA7100478E28 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F802448BA7100478E28 /* API.swift */; };
+		0BE78F832448C0AA00478E28 /* Breweries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F822448C0AA00478E28 /* Breweries.swift */; };
+		D7FBDBC84F8378951BC42D6C /* Pods_Breweries_list.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2D10CBD4E3F9032D40FE28 /* Pods_Breweries_list.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		0BE78F762448B65000478E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweriesTableViewCell.swift; sourceTree = "<group>"; };
 		0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweriesTableViewCell.xib; sourceTree = "<group>"; };
+		0BE78F802448BA7100478E28 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		0BE78F822448C0AA00478E28 /* Breweries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breweries.swift; sourceTree = "<group>"; };
+		10B1255BDE3FA91A3BB3EBF5 /* Pods-Breweries list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breweries list.release.xcconfig"; path = "Target Support Files/Pods-Breweries list/Pods-Breweries list.release.xcconfig"; sourceTree = "<group>"; };
+		8311265649187890934822E8 /* Pods-Breweries list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breweries list.debug.xcconfig"; path = "Target Support Files/Pods-Breweries list/Pods-Breweries list.debug.xcconfig"; sourceTree = "<group>"; };
+		9F2D10CBD4E3F9032D40FE28 /* Pods_Breweries_list.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breweries_list.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7FBDBC84F8378951BC42D6C /* Pods_Breweries_list.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,8 @@
 			children = (
 				0BE78F672448B64D00478E28 /* Breweries list */,
 				0BE78F662448B64D00478E28 /* Products */,
+				B5BD571B8596578349613E4A /* Pods */,
+				91F4971937FFE5DB4AFC0FE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,8 +77,27 @@
 				0BE78F762448B65000478E28 /* Info.plist */,
 				0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */,
 				0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */,
+				0BE78F802448BA7100478E28 /* API.swift */,
+				0BE78F822448C0AA00478E28 /* Breweries.swift */,
 			);
 			path = "Breweries list";
+			sourceTree = "<group>";
+		};
+		91F4971937FFE5DB4AFC0FE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F2D10CBD4E3F9032D40FE28 /* Pods_Breweries_list.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5BD571B8596578349613E4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8311265649187890934822E8 /* Pods-Breweries list.debug.xcconfig */,
+				10B1255BDE3FA91A3BB3EBF5 /* Pods-Breweries list.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BE78F792448B65000478E28 /* Build configuration list for PBXNativeTarget "Breweries list" */;
 			buildPhases = (
+				CFD1EE50EE19DBC598EA5152 /* [CP] Check Pods Manifest.lock */,
 				0BE78F612448B64D00478E28 /* Sources */,
 				0BE78F622448B64D00478E28 /* Frameworks */,
 				0BE78F632448B64D00478E28 /* Resources */,
+				631B00E5DF6560C0E80E48E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +169,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		631B00E5DF6560C0E80E48E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Breweries list/Pods-Breweries list-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Breweries list/Pods-Breweries list-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Breweries list/Pods-Breweries list-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFD1EE50EE19DBC598EA5152 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Breweries list-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0BE78F612448B64D00478E28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -144,6 +218,8 @@
 			files = (
 				0BE78F6D2448B64D00478E28 /* ViewController.swift in Sources */,
 				0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */,
+				0BE78F832448C0AA00478E28 /* Breweries.swift in Sources */,
+				0BE78F812448BA7100478E28 /* API.swift in Sources */,
 				0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +362,7 @@
 		};
 		0BE78F7A2448B65000478E28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8311265649187890934822E8 /* Pods-Breweries list.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -305,6 +382,7 @@
 		};
 		0BE78F7B2448B65000478E28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10B1255BDE3FA91A3BB3EBF5 /* Pods-Breweries list.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
