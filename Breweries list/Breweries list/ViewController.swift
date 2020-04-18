@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet fileprivate weak var breweriesTableView: UITableView!
-    fileprivate var arrayOfBreweries = [Breweries]()
+    fileprivate var arrayOfBreweries = [Brewery]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BreweriesTableViewCell") as! BreweriesTableViewCell
-        cell.setData(tableViewWidth: tableView.bounds.width)
+        cell.configureCell(tableViewWidth: tableView.bounds.width, brewery: arrayOfBreweries[indexPath.row])
         return cell
     }
     

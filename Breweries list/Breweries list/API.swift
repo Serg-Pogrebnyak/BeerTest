@@ -20,16 +20,16 @@ class API {
         case get = "GET"
     }
     
-    func getAllBreweries(callback: @escaping ([Breweries]?) -> Void) {
+    func getAllBreweries(callback: @escaping ([Brewery]?) -> Void) {
         sendRequest(API.baseURL + API.breweriesList, method: .get) { (json) in
             guard let arrayOfJson = json?.array, !arrayOfJson.isEmpty else {
                 callback(nil)
                 return
             }
             
-            var arrayOfBreweries = [Breweries]()
+            var arrayOfBreweries = [Brewery]()
             for obect in arrayOfJson {
-                arrayOfBreweries.append(Breweries(fromJson: obect))
+                arrayOfBreweries.append(Brewery(fromJson: obect))
             }
             
             callback(arrayOfBreweries)

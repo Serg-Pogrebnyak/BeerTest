@@ -18,12 +18,15 @@ class BreweriesTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var borderView: UIView!
     @IBOutlet fileprivate weak var elementsStackView: UIStackView!
     
-    func setData(tableViewWidth: CGFloat) {
+    func configureCell(tableViewWidth: CGFloat, brewery: Brewery) {
+        elementsStackView.removeAllArrangedSubviews()
         let frame = CGRect.init(x: 0,
                                 y: 0,
                                 width: getElementWidth(rootWidth: tableViewWidth),
                                 height: 17)
         let titleView = TitleView.init(frame: frame)
+
+        titleView.setData(title: brewery.name)
         elementsStackView.addArrangedSubview(titleView)
         
         elementsStackView.layoutIfNeeded()
@@ -46,5 +49,21 @@ class BreweriesTableViewCell: UITableViewCell {
                             fromBorderViewToStackViewLeft.constant -
                             fromBorderViewToStackViewRight.constant
         return elementWidth
+    }
+    
+
+}
+
+extension UIStackView {
+    
+    func removeAllArrangedSubviews() {
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
+        }
+        
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        
+        removedSubviews.forEach({ $0.removeFromSuperview() })
     }
 }

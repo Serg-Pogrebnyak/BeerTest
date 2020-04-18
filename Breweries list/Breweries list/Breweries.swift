@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Breweries {
+struct Brewery {
     
     let name: String
     let id: String

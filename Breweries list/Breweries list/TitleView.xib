@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView" customModule="Breweries_list" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="mOz-U9-eqJ" id="MQy-Tu-6Ef"/>
-                <outlet property="title" destination="Sji-p7-b5F" id="5Gj-cu-eHH"/>
+                <outlet property="titleLabel" destination="Sji-p7-b5F" id="Uja-3C-0oh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

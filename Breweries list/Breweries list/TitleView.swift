@@ -11,7 +11,7 @@ import UIKit
 class TitleView: UIView {
 
     @IBOutlet fileprivate var contentView: UIView!
-    @IBOutlet fileprivate weak var title: UILabel!
+    @IBOutlet fileprivate weak var titleLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,12 +23,15 @@ class TitleView: UIView {
         commonInit()
     }
     
-    func commonInit() {
+    func setData(title: String) {
+        titleLabel.text = title
+    }
+    
+    fileprivate func commonInit() {
         Bundle.main.loadNibNamed("TitleView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        title.textColor = UIColor.init(red: 69.0/255.0, green: 69.0/255.0, blue: 69.0/255.0, alpha: 1.0)
-        title.text = "Almanac Beer Company"
+        titleLabel.textColor = UIColor.init(red: 69.0/255.0, green: 69.0/255.0, blue: 69.0/255.0, alpha: 1.0)
     }
 }
