@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView" customModule="Breweries_list" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="mOz-U9-eqJ" id="MQy-Tu-6Ef"/>
+                <outlet property="title" destination="Sji-p7-b5F" id="5Gj-cu-eHH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="mOz-U9-eqJ">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNf-AG-hy2">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sji-p7-b5F">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Sji-p7-b5F" secondAttribute="bottom" id="59b-qq-lEx"/>
+                        <constraint firstItem="Sji-p7-b5F" firstAttribute="top" secondItem="bNf-AG-hy2" secondAttribute="top" id="hCK-iO-w2C"/>
+                        <constraint firstItem="Sji-p7-b5F" firstAttribute="leading" secondItem="bNf-AG-hy2" secondAttribute="leading" id="ieD-4n-aj7"/>
+                        <constraint firstAttribute="trailing" secondItem="Sji-p7-b5F" secondAttribute="trailing" id="nHC-W0-cZO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="bNf-AG-hy2" firstAttribute="trailing" secondItem="3aC-2E-WeA" secondAttribute="trailing" id="1hA-RS-zps"/>
+                <constraint firstItem="bNf-AG-hy2" firstAttribute="top" secondItem="mOz-U9-eqJ" secondAttribute="top" id="UyK-VC-Pgd"/>
+                <constraint firstItem="bNf-AG-hy2" firstAttribute="leading" secondItem="3aC-2E-WeA" secondAttribute="leading" id="Zgg-C4-AOR"/>
+                <constraint firstItem="bNf-AG-hy2" firstAttribute="bottom" secondItem="3aC-2E-WeA" secondAttribute="bottom" id="uMa-Cc-atj"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="3aC-2E-WeA"/>
+            <point key="canvasLocation" x="-68.115942028985515" y="-132.25446428571428"/>
+        </view>
+    </objects>
+</document>

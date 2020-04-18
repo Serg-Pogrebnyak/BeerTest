@@ -16,9 +16,41 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="432" height="236"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKg-Wj-6JK">
+                        <rect key="frame" x="12" y="13" width="408" height="223"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aaf-zh-BrQ">
+                                <rect key="frame" x="15" y="10" width="378" height="213"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aaf-zh-BrQ" secondAttribute="trailing" constant="15" id="bSY-IC-2Eu"/>
+                            <constraint firstAttribute="bottom" secondItem="aaf-zh-BrQ" secondAttribute="bottom" id="eHu-dc-oIL"/>
+                            <constraint firstItem="aaf-zh-BrQ" firstAttribute="top" secondItem="TKg-Wj-6JK" secondAttribute="top" constant="10" id="mV3-1h-yJO"/>
+                            <constraint firstItem="aaf-zh-BrQ" firstAttribute="leading" secondItem="TKg-Wj-6JK" secondAttribute="leading" constant="15" id="mmy-yd-vgC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="TKg-Wj-6JK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="MYm-n9-LHe"/>
+                    <constraint firstItem="TKg-Wj-6JK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="PGX-6I-Dbt"/>
+                    <constraint firstAttribute="trailing" secondItem="TKg-Wj-6JK" secondAttribute="trailing" constant="12" id="RHG-lX-j0J"/>
+                    <constraint firstAttribute="bottom" secondItem="TKg-Wj-6JK" secondAttribute="bottom" id="qwh-LC-e1t"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="borderView" destination="TKg-Wj-6JK" id="b5U-Qp-nkJ"/>
+                <outlet property="elementsStackView" destination="aaf-zh-BrQ" id="UOR-cx-Tva"/>
+                <outlet property="fromBorderViewToStackViewLeft" destination="mmy-yd-vgC" id="NLs-yC-wKa"/>
+                <outlet property="fromBorderViewToStackViewRight" destination="bSY-IC-2Eu" id="k4T-Fe-63x"/>
+                <outlet property="fromSuperViewToBorderViewLeft" destination="MYm-n9-LHe" id="eHc-mv-7Gi"/>
+                <outlet property="fromSuperViewToBorderViewRight" destination="RHG-lX-j0J" id="lWz-ST-kmh"/>
+            </connections>
             <point key="canvasLocation" x="213.04347826086959" y="88.392857142857139"/>
         </tableViewCell>
     </objects>

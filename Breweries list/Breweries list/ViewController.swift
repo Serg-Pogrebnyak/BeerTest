@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //configure navigation bar
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = UIColor.ownGreen
         //register table view cell
         let nib = UINib.init(nibName: "BreweriesTableViewCell", bundle: nil)
         breweriesTableView.register(nib, forCellReuseIdentifier: "BreweriesTableViewCell")
@@ -40,13 +43,14 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfBreweries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BreweriesTableViewCell") as! BreweriesTableViewCell
-        cell.setData()
+        cell.setData(tableViewWidth: tableView.bounds.width)
         return cell
     }
     
