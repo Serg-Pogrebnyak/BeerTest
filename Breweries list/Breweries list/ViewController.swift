@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         //register table view cell
         let nib = UINib.init(nibName: "BreweriesTableViewCell", bundle: nil)
         breweriesTableView.register(nib, forCellReuseIdentifier: "BreweriesTableViewCell")
+        //mockedData()
         API.shared.getAllBreweries { [weak self] (arrayOfBreweriesOptional) in
             if arrayOfBreweriesOptional != nil {
                 self?.arrayOfBreweries = arrayOfBreweriesOptional!
@@ -31,6 +32,26 @@ class ViewController: UIViewController {
                 print("❌error")
             }
         }
+    }
+    
+    func mockedData() {
+        let brewery1 = (Brewery.init(name: "Almanac Beer Company",
+                                     id: "34",
+                                     updatedAt: "234",
+                                     phone: "4159326531",
+                                     webSite: "http://almanacbeer.com"))
+        arrayOfBreweries.append(brewery1)
+        let brewery2 = (Brewery.init(name: "Almanac Beer Company 2",
+                                     id: "34",
+                                     updatedAt: "234",
+                                     phone: "4159326531",
+                                     latitude: "djnfs",
+                                     longitude: "sdflknsdf",
+                                     country: "United States",
+                                     state: "United States",
+                                     city: "Alameda",
+                                     street: "651B W Tower Ave"))
+        arrayOfBreweries.append(brewery2)
     }
 
 

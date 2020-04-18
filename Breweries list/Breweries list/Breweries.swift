@@ -10,19 +10,20 @@ import Foundation
 import SwiftyJSON
 
 struct Brewery {
-    
-    let name: String
-    let id: String
-    let updatedAt: String
-    
-    let phone: String?
-    let country: String?
-    let latitude: String?
-    let longitude: String?
-    let city: String?
-    let street: String?
-    let state: String?
-    let website_url: String?
+    //requiered information
+    private let name: String
+    private let id: String
+    private let updatedAt: String
+    //optional information
+    private let phone: String?
+    private let country: String?
+    private let city: String?
+    private let street: String?
+    private let state: String?
+    //information for map or web view
+    private let latitude: String?
+    private let longitude: String?
+    private let website_url: String?
     
     init(fromJson json:JSON) {
         self.name = json["name"].stringValue
@@ -38,4 +39,76 @@ struct Brewery {
         self.state = json["state"].string
         self.website_url = json["website_url"].string
     }
+    
+    init(name: String, id: String, updatedAt: String, phone: String? = nil, latitude: String? = nil, longitude: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, street: String? = nil, webSite: String? = nil) {
+        self.name = name
+        self.id = id
+        self.updatedAt = updatedAt
+        
+        self.phone = phone
+        self.country = country
+        self.latitude = latitude
+        self.longitude = longitude
+        self.city = city
+        self.street = street
+        self.state = nil
+        self.website_url = webSite
+    }
+    
+    func getName() -> String {
+        return self.name
+    }
+    
+    func getInformationForDisplay() -> [NSAttributedString] {
+        var informationArray = [NSAttributedString]()
+
+        if phone != nil && !phone!.isEmpty {
+            let phoneInfo = configureInfoForDisplay(desc: "Phone: ", info: phone!)
+            informationArray.append(phoneInfo)
+        }
+        if country != nil && !country!.isEmpty {
+            let countryInfo = configureInfoForDisplay(desc: "Country: ", info: country!)
+            informationArray.append(countryInfo)
+        }
+        if state != nil && !state!.isEmpty {
+            let stateInfo = configureInfoForDisplay(desc: "State: ", info: state!)
+            informationArray.append(stateInfo)
+        }
+        if city != nil && !city!.isEmpty {
+            let cityInfo = configureInfoForDisplay(desc: "City: ", info: city!)
+            informationArray.append(cityInfo)
+        }
+        if street != nil && !street!.isEmpty {
+            let streetInfo = configureInfoForDisplay(desc: "Street: ", info: street!)
+            informationArray.append(streetInfo)
+        }
+        if website_url != nil && !website_url!.isEmpty {
+            let siteInfo = configureInfoForDisplay(desc: "Website: ",
+                                                   info: website_url!,
+                                                   shouldUnderlineInfo: true)
+            informationArray.append(siteInfo)
+        }
+
+        return informationArray
+    }
+    
+    fileprivate func configureInfoForDisplay(desc: String,
+                                             info: String,
+                                             shouldUnderlineInfo: Bool = false) -> NSAttributedString {
+        let attributeForDesc = [ NSAttributedString.Key.foregroundColor: UIColor.init(red: 139.0/255.0, green: 139.0/255.0, blue: 139.0/255.0, alpha: 1.0) ]
+        let attributedDescString = NSMutableAttributedString(string: desc, attributes: attributeForDesc)
+        
+        var attributeForInfo: [NSAttributedString.Key : Any] = [ NSAttributedString.Key.foregroundColor: UIColor.init(red: 69.0/255.0, green: 69.0/255.0, blue: 69.0/255.0, alpha: 1.0) ]
+        
+        if shouldUnderlineInfo {
+            attributeForInfo[NSAttributedString.Key.underlineStyle] = NSUnderlineStyle.single.rawValue
+        }
+        
+        let attributedInfoString = NSAttributedString(string: info, attributes: attributeForInfo)
+        attributedDescString.append(attributedInfoString)
+
+        return attributedDescString
+    }
+    
+
 }

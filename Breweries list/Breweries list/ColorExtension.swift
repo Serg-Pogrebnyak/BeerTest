@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     static var ownGreen: UIColor {
-        return UIColor.init(red: 45.0/255.0, green: 136.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        return UIColor.init(red: 87.0/255.0, green: 132.0/255.0, blue: 34.0/255.0, alpha: 1.0)
     }
     
     static var tableViewCellBackground: UIColor {

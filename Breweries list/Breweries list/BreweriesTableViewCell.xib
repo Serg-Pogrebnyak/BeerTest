@@ -21,14 +21,14 @@
                         <rect key="frame" x="12" y="13" width="408" height="223"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aaf-zh-BrQ">
-                                <rect key="frame" x="15" y="10" width="378" height="213"/>
+                                <rect key="frame" x="15" y="10" width="378" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aaf-zh-BrQ" secondAttribute="trailing" constant="15" id="bSY-IC-2Eu"/>
-                            <constraint firstAttribute="bottom" secondItem="aaf-zh-BrQ" secondAttribute="bottom" id="eHu-dc-oIL"/>
+                            <constraint firstAttribute="bottom" secondItem="aaf-zh-BrQ" secondAttribute="bottom" constant="13" id="eHu-dc-oIL"/>
                             <constraint firstItem="aaf-zh-BrQ" firstAttribute="top" secondItem="TKg-Wj-6JK" secondAttribute="top" constant="10" id="mV3-1h-yJO"/>
                             <constraint firstItem="aaf-zh-BrQ" firstAttribute="leading" secondItem="TKg-Wj-6JK" secondAttribute="leading" constant="15" id="mmy-yd-vgC"/>
                         </constraints>

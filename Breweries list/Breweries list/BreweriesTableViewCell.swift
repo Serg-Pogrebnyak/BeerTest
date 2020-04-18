@@ -23,22 +23,21 @@ class BreweriesTableViewCell: UITableViewCell {
         let frame = CGRect.init(x: 0,
                                 y: 0,
                                 width: getElementWidth(rootWidth: tableViewWidth),
-                                height: 17)
+                                height: 15)
         let titleView = TitleView.init(frame: frame)
-
-        titleView.setData(title: brewery.name)
-        elementsStackView.addArrangedSubview(titleView)
+        titleView.setData(title: brewery.getName())
         
-        elementsStackView.layoutIfNeeded()
+        elementsStackView.addArrangedSubview(titleView)
+        for inform in brewery.getInformationForDisplay() {
+            let informationView = InformationView.init(frame: frame)
+            informationView.setData(attributedInfo: inform)
+            elementsStackView.addArrangedSubview(informationView)
+        }
         
         borderView.layer.backgroundColor = UIColor.tableViewCellBackground.cgColor
         borderView.layer.borderColor = UIColor.ownGreen.cgColor
-        borderView.layer.borderWidth = 1.5
+        borderView.layer.borderWidth = 1.0
         borderView.layer.cornerRadius = 10
-        
-    }
-    
-    override func layoutIfNeeded() {
         
     }
     
