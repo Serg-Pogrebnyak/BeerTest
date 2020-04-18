@@ -24,8 +24,9 @@ class BreweriesTableViewCell: UITableViewCell {
                                 width: getElementWidth(rootWidth: tableViewWidth),
                                 height: 17)
         let titleView = TitleView.init(frame: frame)
-        self.elementsStackView.addSubview(titleView)
+        elementsStackView.addArrangedSubview(titleView)
         
+        elementsStackView.layoutIfNeeded()
         
         borderView.layer.backgroundColor = UIColor.tableViewCellBackground.cgColor
         borderView.layer.borderColor = UIColor.ownGreen.cgColor
