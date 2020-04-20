@@ -7,6 +7,7 @@
 //
 
 import SwiftyJSON
+import CoreData
 
 class API {
     
@@ -21,25 +22,78 @@ class API {
         case get = "GET"
     }
     
-    func getAllBreweries(bysearch: String? = nil, callback: @escaping ([Brewery]?) -> Void) {
-        var url: String!
-        if bysearch != nil && !bysearch!.isEmpty {
-            url = API.searchList + bysearch!
-        } else {
-            url = API.breweriesList
+    func getAllBreweries(callback: @escaping (Bool) -> Void) {
+        sendRequest(API.baseURL + API.breweriesList, method: .get) { (json) in
+            guard let arrayOfJson = json?.array, !arrayOfJson.isEmpty else {
+                callback(false)
+                return
+            }
+            
+            CoreManager.shared.coreManagerContext.perform {
+                do {
+                    let localEntityArray = try CoreManager.shared.coreManagerContext.fetch(Brewery.fetchRequest()) as! [Brewery]
+                    
+                    for jsonObject in arrayOfJson {
+                        let newObjectID = jsonObject["id"].stringValue
+                        var hasElemetInStorage = false
+                        for localEntity in localEntityArray {
+                            if localEntity.id == newObjectID {
+                                hasElemetInStorage = true
+                                break
+                            }
+                        }
+                        
+                        if !hasElemetInStorage {
+                            _ = Brewery.init(fromJson: jsonObject)
+                        }
+                    }
+                    CoreManager.shared.saveContext()
+                    callback(true)
+                } catch {
+                    let nserror = error as NSError
+                    print("Unresolved error \(nserror), \(nserror.userInfo)")
+                    callback(false)
+                }
+            }
         }
-        sendRequest(API.baseURL + url, method: .get) { (json) in
+    }
+    
+    func searchBreweries(bysearch: String, callback: @escaping ([Brewery]?) -> Void) {
+        sendRequest(API.baseURL + API.searchList + bysearch, method: .get) { (json) in
             guard let arrayOfJson = json?.array, !arrayOfJson.isEmpty else {
                 callback(nil)
                 return
             }
             
-            var arrayOfBreweries = [Brewery]()
-            for obect in arrayOfJson {
-                arrayOfBreweries.append(Brewery(fromJson: obect))
+            CoreManager.shared.coreManagerContext.perform {
+                do {
+                    var returnedArray = [Brewery]()
+                    let localEntityArray = try CoreManager.shared.coreManagerContext.fetch(Brewery.fetchRequest()) as! [Brewery]
+                    
+                    for jsonObject in arrayOfJson {
+                        let newObjectID = jsonObject["id"].stringValue
+                        var hasElemetInStorage = false
+                        for localEntity in localEntityArray {
+                            if localEntity.id == newObjectID {
+                                hasElemetInStorage = true
+                                returnedArray.append(localEntity)
+                                break
+                            }
+                        }
+                        
+                        if !hasElemetInStorage {
+                            let newObject = Brewery.init(fromJson: jsonObject)
+                            returnedArray.append(newObject)
+                        }
+                    }
+                    CoreManager.shared.saveContext()
+                    callback(returnedArray)
+                } catch {
+                    let nserror = error as NSError
+                    print("Unresolved error \(nserror), \(nserror.userInfo)")
+                    callback(nil)
+                }
             }
-
-            callback(arrayOfBreweries)
         }
     }
     

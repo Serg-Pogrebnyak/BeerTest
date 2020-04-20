@@ -19,7 +19,7 @@
 		0BE2E5D7244E02F700A8CD32 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2E5D5244E02F700A8CD32 /* CoreDataModel.xcdatamodeld */; };
 		0BE2E5D9244E050600A8CD32 /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2E5D8244E050600A8CD32 /* CoreManager.swift */; };
 		0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F682448B64D00478E28 /* AppDelegate.swift */; };
-		0BE78F6D2448B64D00478E28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F6C2448B64D00478E28 /* ViewController.swift */; };
+		0BE78F6D2448B64D00478E28 /* ListOfBreweriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F6C2448B64D00478E28 /* ListOfBreweriesVC.swift */; };
 		0BE78F702448B64D00478E28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F6E2448B64D00478E28 /* Main.storyboard */; };
 		0BE78F722448B65000478E28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F712448B65000478E28 /* Assets.xcassets */; };
 		0BE78F752448B65000478E28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F732448B65000478E28 /* LaunchScreen.storyboard */; };
@@ -48,7 +48,7 @@
 		0BE2E5D8244E050600A8CD32 /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
 		0BE78F652448B64D00478E28 /* Breweries list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breweries list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE78F682448B64D00478E28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0BE78F6C2448B64D00478E28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0BE78F6C2448B64D00478E28 /* ListOfBreweriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBreweriesVC.swift; sourceTree = "<group>"; };
 		0BE78F6F2448B64D00478E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BE78F712448B65000478E28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BE78F742448B65000478E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		0B846E7D244DE4BA00E794AF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0BE78F6C2448B64D00478E28 /* ViewController.swift */,
+				0BE78F6C2448B64D00478E28 /* ListOfBreweriesVC.swift */,
 				0BA5C763244DA58E00EBD486 /* MapVC.swift */,
 			);
 			path = Controllers;
@@ -366,7 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BE78F6D2448B64D00478E28 /* ViewController.swift in Sources */,
+				0BE78F6D2448B64D00478E28 /* ListOfBreweriesVC.swift in Sources */,
 				0BA5C75E244B768B00EBD486 /* InformationView.swift in Sources */,
 				0BA5C762244D9FBA00EBD486 /* MapButtonView.swift in Sources */,
 				0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */,

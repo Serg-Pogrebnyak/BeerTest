@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ListOfBreweriesVC.swift
 //  Breweries list
 //
 //  Created by Sergey Pohrebnuak on 16.04.2020.
@@ -9,12 +9,18 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController {
+class ListOfBreweriesVC: UIViewController {
 
     @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet fileprivate weak var breweriesTableView: UITableView!
     fileprivate var tapOnTableViewGestureRecognizer: UITapGestureRecognizer!
-    fileprivate var arrayOfBreweries = [Brewery]()
+    fileprivate var arrayOfBreweries = [Brewery]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.breweriesTableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,19 +39,33 @@ class ViewController: UIViewController {
         breweriesTableView.addGestureRecognizer(tapOnTableViewGestureRecognizer)
         //get data
         arrayOfBreweries = CoreManager.shared.getBreweriesFromCoreData()
-        fetchDataFromAPI()
+        
+        fetchAllDataFromAPI()
     }
     
-    fileprivate func fetchDataFromAPI(searchText: String? = nil) {
-        API.shared.getAllBreweries(bysearch: searchText) { [weak self] (arrayOfBreweriesOptional) in
-            if arrayOfBreweriesOptional != nil {
-                self?.arrayOfBreweries = arrayOfBreweriesOptional!
-                CoreManager.shared.saveContext()
-                DispatchQueue.main.async {
-                    self?.breweriesTableView.reloadData()
-                }
-            } else {
-                print("❌error")
+    fileprivate func fetchAllDataFromAPI() {
+        API.shared.getAllBreweries{ [weak self] (success) in
+            if success {
+                self?.fetchDataFromLocalStorage()
+            }
+        }
+    }
+    
+    fileprivate func searchDataInAPI(text: String) {
+        API.shared.searchBreweries(bysearch: text) {[weak self] (searchedBreweries) in
+            guard searchedBreweries != nil else {return}
+            self?.arrayOfBreweries = searchedBreweries!
+            self?.breweriesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+    }
+    
+    fileprivate func fetchDataFromLocalStorage() {
+        CoreManager.shared.coreManagerContext.perform { [weak self] in
+            do {
+                self?.arrayOfBreweries = try CoreManager.shared.coreManagerContext.fetch(Brewery.fetchRequest()) as! [Brewery]
+                self?.breweriesTableView.reloadData()
+            } catch {
+                print("some error")
             }
         }
     }
@@ -56,13 +76,13 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension ListOfBreweriesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ListOfBreweriesVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfBreweries.count
@@ -80,7 +100,7 @@ extension ViewController: UITableViewDataSource {
     
 }
 
-extension ViewController: ShowBreweryInfoDelegate {
+extension ListOfBreweriesVC: ShowBreweryInfoDelegate {
     func tapOnWebSiteLabel(url: URL) {
         tapOnTableViewGestureRecognizer.isEnabled = false
         searchBar.endEditing(true)
@@ -101,18 +121,19 @@ extension ViewController: ShowBreweryInfoDelegate {
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension ListOfBreweriesVC: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         tapOnTableViewGestureRecognizer.isEnabled = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        fetchDataFromAPI(searchText: searchText)
+        searchDataInAPI(text: searchText)
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         tapOnTableViewGestureRecognizer.isEnabled = false
-        fetchDataFromAPI(searchText: searchBar.text)
         self.searchBar.resignFirstResponder()
+        guard let searchText = searchBar.text else {return}
+        searchDataInAPI(text: searchText)
     }
 }
