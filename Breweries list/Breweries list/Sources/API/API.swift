@@ -14,14 +14,21 @@ class API {
     
     fileprivate static let baseURL = "https://api.openbrewerydb.org/"
     fileprivate static let breweriesList = "breweries"
+    fileprivate static let searchList = "breweries?by_name="
     
     enum Method: String {
         case post = "POST"
         case get = "GET"
     }
     
-    func getAllBreweries(callback: @escaping ([Brewery]?) -> Void) {
-        sendRequest(API.baseURL + API.breweriesList, method: .get) { (json) in
+    func getAllBreweries(bysearch: String? = nil, callback: @escaping ([Brewery]?) -> Void) {
+        var url: String!
+        if bysearch != nil && !bysearch!.isEmpty {
+            url = API.searchList + bysearch!
+        } else {
+            url = API.breweriesList
+        }
+        sendRequest(API.baseURL + url, method: .get) { (json) in
             guard let arrayOfJson = json?.array, !arrayOfJson.isEmpty else {
                 callback(nil)
                 return
@@ -31,10 +38,9 @@ class API {
             for obect in arrayOfJson {
                 arrayOfBreweries.append(Brewery(fromJson: obect))
             }
-            
+
             callback(arrayOfBreweries)
         }
-        
     }
     
     fileprivate func sendRequest(_ url: String,
@@ -42,8 +48,12 @@ class API {
                                  jsonParams: [String : Any]? = nil,
                                  callback: @escaping ((JSON?) -> ())) {
         do {
-            let url = URL.init(string: url)!
+            guard let url = URL.init(string: url) else {
+                callback(nil)
+                return
+            }
             let session = URLSession.shared
+            session.configuration.timeoutIntervalForRequest = 60.0
             var request = URLRequest(url: url)
             request.httpMethod = method.rawValue
 
@@ -52,7 +62,6 @@ class API {
             }
             
             let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
-                session.finishTasksAndInvalidate()
                 guard   let data:Data = data,
                         let _:URLResponse = response,
                         error == nil,

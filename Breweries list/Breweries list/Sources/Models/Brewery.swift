@@ -40,21 +40,6 @@ struct Brewery {
         self.website_url = json["website_url"].string
     }
     
-    init(name: String, id: String, updatedAt: String, phone: String? = nil, latitude: String? = nil, longitude: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, street: String? = nil, webSite: String? = nil) {
-        self.name = name
-        self.id = id
-        self.updatedAt = updatedAt
-        
-        self.phone = phone
-        self.country = country
-        self.latitude = latitude
-        self.longitude = longitude
-        self.city = city
-        self.street = street
-        self.state = nil
-        self.website_url = webSite
-    }
-    
     func getName() -> String {
         return self.name
     }
@@ -118,6 +103,4 @@ struct Brewery {
 
         return attributedDescString
     }
-    
-
 }

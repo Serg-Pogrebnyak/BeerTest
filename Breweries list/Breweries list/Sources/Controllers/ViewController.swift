@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet fileprivate weak var breweriesTableView: UITableView!
+    fileprivate var tapOnTableViewGestureRecognizer: UITapGestureRecognizer!
     fileprivate var arrayOfBreweries = [Brewery]()
-    fileprivate var filterArrayOfBreweries = [Brewery]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,17 @@ class ViewController: UIViewController {
         //register table view cell
         let nib = UINib.init(nibName: "BreweriesTableViewCell", bundle: nil)
         breweriesTableView.register(nib, forCellReuseIdentifier: "BreweriesTableViewCell")
-        //mockedData()
-        API.shared.getAllBreweries { [weak self] (arrayOfBreweriesOptional) in
+        
+        tapOnTableViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(finishEnterText))
+        breweriesTableView.addGestureRecognizer(tapOnTableViewGestureRecognizer)
+        //get data
+        fetchDataFromAPI()
+    }
+    
+    fileprivate func fetchDataFromAPI(searchText: String? = nil) {
+        API.shared.getAllBreweries(bysearch: searchText) { [weak self] (arrayOfBreweriesOptional) in
             if arrayOfBreweriesOptional != nil {
                 self?.arrayOfBreweries = arrayOfBreweriesOptional!
-                self?.filterArrayOfBreweries = arrayOfBreweriesOptional!
                 DispatchQueue.main.async {
                     self?.breweriesTableView.reloadData()
                 }
@@ -41,6 +47,11 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @objc fileprivate func finishEnterText() {
+        searchBar.endEditing(true)
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate {
@@ -57,6 +68,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BreweriesTableViewCell") as! BreweriesTableViewCell
+        guard indexPath.row < arrayOfBreweries.count else {return cell}
         cell.configureCell(tableViewWidth: tableView.bounds.width,
                            brewery: arrayOfBreweries[indexPath.row],
                            openMapDelegate: self)
@@ -68,6 +80,8 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: ShowBreweryInfoDelegate {
     func tapOnWebSiteLabel(url: URL) {
+        tapOnTableViewGestureRecognizer.isEnabled = false
+        searchBar.endEditing(true)
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
 
@@ -76,6 +90,8 @@ extension ViewController: ShowBreweryInfoDelegate {
     }
     
     func showOnMap(annotation: MapBreweryAnnotation) {
+        tapOnTableViewGestureRecognizer.isEnabled = false
+        searchBar.endEditing(true)
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapVC") as! MapVC
         mapVC.mapAnnotation = annotation
@@ -84,21 +100,17 @@ extension ViewController: ShowBreweryInfoDelegate {
 }
 
 extension ViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        tapOnTableViewGestureRecognizer.isEnabled = true
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.arrayOfBreweries.removeAll()
-
-        if searchText.isEmpty {
-            arrayOfBreweries = filterArrayOfBreweries
-        } else {
-            arrayOfBreweries = filterArrayOfBreweries.filter({ (object) -> Bool in
-                object.getName().contains(searchText)
-            })
-        }
-        
-        self.breweriesTableView.reloadData()
+        fetchDataFromAPI(searchText: searchText)
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        tapOnTableViewGestureRecognizer.isEnabled = false
+        fetchDataFromAPI(searchText: searchBar.text)
         self.searchBar.resignFirstResponder()
     }
 }
