@@ -13,11 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet fileprivate weak var breweriesTableView: UITableView!
     fileprivate var arrayOfBreweries = [Brewery]()
+    fileprivate var filterArrayOfBreweries = [Brewery]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.ownGreen
-        //setup UISearch bar custom UI
+        //configure UISearch bar
+        searchBar.delegate = self
         searchBar.setClearBackgroundView()
         searchBar.setSearchBarTextFieldColor(UIColor.white)
         //configure navigation bar
@@ -29,6 +31,7 @@ class ViewController: UIViewController {
         API.shared.getAllBreweries { [weak self] (arrayOfBreweriesOptional) in
             if arrayOfBreweriesOptional != nil {
                 self?.arrayOfBreweries = arrayOfBreweriesOptional!
+                self?.filterArrayOfBreweries = arrayOfBreweriesOptional!
                 DispatchQueue.main.async {
                     self?.breweriesTableView.reloadData()
                 }
@@ -90,5 +93,25 @@ extension ViewController: ShowOnMapDelegate {
         let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapVC") as! MapVC
         mapVC.mapAnnotation = annotation
         self.navigationController?.pushViewController(mapVC, animated: true)
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.arrayOfBreweries.removeAll()
+
+        if searchText.isEmpty {
+            arrayOfBreweries = filterArrayOfBreweries
+        } else {
+            arrayOfBreweries = filterArrayOfBreweries.filter({ (object) -> Bool in
+                object.getName().contains(searchText)
+            })
+        }
+        
+        self.breweriesTableView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
     }
 }
