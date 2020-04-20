@@ -21,10 +21,7 @@ class ViewController: UIViewController {
         searchBar.setClearBackgroundView()
         searchBar.setSearchBarTextFieldColor(UIColor.white)
         //configure navigation bar
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.ownGreen
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        setupUINavigationBar()
         //register table view cell
         let nib = UINib.init(nibName: "BreweriesTableViewCell", bundle: nil)
         breweriesTableView.register(nib, forCellReuseIdentifier: "BreweriesTableViewCell")

@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="-272.46376811594206" y="-5.3571428571428568"/>
         </scene>
-        <!--MapVC-->
+        <!--Map-->
         <scene sceneID="efx-pl-4TI">
             <objects>
-                <viewController storyboardIdentifier="MapVC" id="V8l-jw-C41" customClass="MapVC" customModule="Breweries_list" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapVC" title="Map" id="V8l-jw-C41" customClass="MapVC" customModule="Breweries_list" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lvy-Qr-Llj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

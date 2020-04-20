@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B53ACF0244DD84300FC24C1 /* SearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B53ACEF244DD84300FC24C1 /* SearchBarExtension.swift */; };
+		0B846E77244DE31C00E794AF /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B846E76244DE31C00E794AF /* UIViewControllerExtension.swift */; };
 		0BA5C75A244B677000EBD486 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C759244B677000EBD486 /* ColorExtension.swift */; };
 		0BA5C75C244B767E00EBD486 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5C75B244B767E00EBD486 /* InformationView.xib */; };
 		0BA5C75E244B768B00EBD486 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C75D244B768B00EBD486 /* InformationView.swift */; };
@@ -33,6 +34,7 @@
 		0B53ACED244DD74000FC24C1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B53ACEF244DD84300FC24C1 /* SearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarExtension.swift; sourceTree = "<group>"; };
 		0B53ACF1244DDCFC00FC24C1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B846E76244DE31C00E794AF /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		0BA5C759244B677000EBD486 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		0BA5C75B244B767E00EBD486 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
 		0BA5C75D244B768B00EBD486 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				0BA5C763244DA58E00EBD486 /* MapVC.swift */,
 				0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */,
 				0B53ACEF244DD84300FC24C1 /* SearchBarExtension.swift */,
+				0B846E76244DE31C00E794AF /* UIViewControllerExtension.swift */,
 			);
 			path = "Breweries list";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				0BE78F812448BA7100478E28 /* API.swift in Sources */,
 				0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */,
 				0BA5C766244DA76500EBD486 /* MapBreweryAnnotation.swift in Sources */,
+				0B846E77244DE31C00E794AF /* UIViewControllerExtension.swift in Sources */,
 				0BA5C75A244B677000EBD486 /* ColorExtension.swift in Sources */,
 				0BE78F852448CE2000478E28 /* TitleView.swift in Sources */,
 				0B53ACF0244DD84300FC24C1 /* SearchBarExtension.swift in Sources */,
