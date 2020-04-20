@@ -8,24 +8,32 @@
 
 import Foundation
 import SwiftyJSON
+import CoreData
 
-struct Brewery {
+class Brewery: NSManagedObject {
     //requiered information
-    private let name: String
-    private let id: String
-    private let updatedAt: String
+    @NSManaged public var name: String
+    @NSManaged public var id: String
+    @NSManaged public var updatedAt: String
     //optional information
-    private let phone: String?
-    private let country: String?
-    private let city: String?
-    private let street: String?
-    private let state: String?
+    @NSManaged public var phone: String?
+    @NSManaged public var country: String?
+    @NSManaged public var city: String?
+    @NSManaged public var street: String?
+    @NSManaged public var state: String?
     //information for map or web view
-    private let latitude: String?
-    private let longitude: String?
-    private let website_url: String?
+    @NSManaged public var latitude: String?
+    @NSManaged public var longitude: String?
+    @NSManaged public var website_url: String?
+    
+    private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+    }
     
     init(fromJson json:JSON) {
+        let entity = NSEntityDescription.entity(forEntityName: "Brewery",
+                                                in: CoreManager.shared.coreManagerContext)!
+        super.init(entity: entity, insertInto: CoreManager.shared.coreManagerContext)
         self.name = json["name"].stringValue
         self.id = json["id"].stringValue
         self.updatedAt = json["updated_at"].stringValue
@@ -38,6 +46,10 @@ struct Brewery {
         self.street = json["street"].string
         self.state = json["state"].string
         self.website_url = json["website_url"].string
+    }
+    
+    @nonobjc public func fetchRequest() -> NSFetchRequest<Brewery> {
+        return NSFetchRequest<Brewery>(entityName: "Brewery")
     }
     
     func getName() -> String {

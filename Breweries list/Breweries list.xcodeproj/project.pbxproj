@@ -16,6 +16,8 @@
 		0BA5C762244D9FBA00EBD486 /* MapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C761244D9FBA00EBD486 /* MapButtonView.swift */; };
 		0BA5C764244DA58E00EBD486 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C763244DA58E00EBD486 /* MapVC.swift */; };
 		0BA5C766244DA76500EBD486 /* MapBreweryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */; };
+		0BE2E5D7244E02F700A8CD32 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2E5D5244E02F700A8CD32 /* CoreDataModel.xcdatamodeld */; };
+		0BE2E5D9244E050600A8CD32 /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2E5D8244E050600A8CD32 /* CoreManager.swift */; };
 		0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F682448B64D00478E28 /* AppDelegate.swift */; };
 		0BE78F6D2448B64D00478E28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F6C2448B64D00478E28 /* ViewController.swift */; };
 		0BE78F702448B64D00478E28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F6E2448B64D00478E28 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		0BA5C761244D9FBA00EBD486 /* MapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonView.swift; sourceTree = "<group>"; };
 		0BA5C763244DA58E00EBD486 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBreweryAnnotation.swift; sourceTree = "<group>"; };
+		0BE2E5D6244E02F700A8CD32 /* Brewery.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Brewery.xcdatamodel; sourceTree = "<group>"; };
+		0BE2E5D8244E050600A8CD32 /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
 		0BE78F652448B64D00478E28 /* Breweries list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breweries list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE78F682448B64D00478E28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BE78F6C2448B64D00478E28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 				0B846E81244DE51C00E794AF /* Extension */,
 				0B846E84244DE5A200E794AF /* CustomUIElements */,
 				0B846E82244DE54D00E794AF /* PLists */,
+				0BE2E5D4244E026B00A8CD32 /* Core Data */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -185,6 +190,15 @@
 				0BA5C761244D9FBA00EBD486 /* MapButtonView.swift */,
 			);
 			path = CustomUIElements;
+			sourceTree = "<group>";
+		};
+		0BE2E5D4244E026B00A8CD32 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				0BE2E5D5244E02F700A8CD32 /* CoreDataModel.xcdatamodeld */,
+				0BE2E5D8244E050600A8CD32 /* CoreManager.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		0BE78F5C2448B64D00478E28 = {
@@ -356,10 +370,12 @@
 				0BA5C75E244B768B00EBD486 /* InformationView.swift in Sources */,
 				0BA5C762244D9FBA00EBD486 /* MapButtonView.swift in Sources */,
 				0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */,
+				0BE2E5D7244E02F700A8CD32 /* CoreDataModel.xcdatamodeld in Sources */,
 				0BE78F832448C0AA00478E28 /* Brewery.swift in Sources */,
 				0BA5C764244DA58E00EBD486 /* MapVC.swift in Sources */,
 				0BE78F812448BA7100478E28 /* API.swift in Sources */,
 				0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */,
+				0BE2E5D9244E050600A8CD32 /* CoreManager.swift in Sources */,
 				0BA5C766244DA76500EBD486 /* MapBreweryAnnotation.swift in Sources */,
 				0B846E77244DE31C00E794AF /* UIViewControllerExtension.swift in Sources */,
 				0BA5C75A244B677000EBD486 /* ColorExtension.swift in Sources */,
@@ -566,6 +582,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0BE2E5D5244E02F700A8CD32 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0BE2E5D6244E02F700A8CD32 /* Brewery.xcdatamodel */,
+			);
+			currentVersion = 0BE2E5D6244E02F700A8CD32 /* Brewery.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0BE78F5D2448B64D00478E28 /* Project object */;
 }

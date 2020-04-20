@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         tapOnTableViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(finishEnterText))
         breweriesTableView.addGestureRecognizer(tapOnTableViewGestureRecognizer)
         //get data
+        arrayOfBreweries = CoreManager.shared.getBreweriesFromCoreData()
         fetchDataFromAPI()
     }
     
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
         API.shared.getAllBreweries(bysearch: searchText) { [weak self] (arrayOfBreweriesOptional) in
             if arrayOfBreweriesOptional != nil {
                 self?.arrayOfBreweries = arrayOfBreweriesOptional!
+                CoreManager.shared.saveContext()
                 DispatchQueue.main.async {
                     self?.breweriesTableView.reloadData()
                 }
