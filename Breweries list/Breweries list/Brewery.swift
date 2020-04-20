@@ -1,5 +1,5 @@
 //
-//  Breweries.swift
+//  Brewery.swift
 //  Breweries list
 //
 //  Created by Sergey Pohrebnuak on 16.04.2020.
@@ -90,6 +90,10 @@ struct Brewery {
         }
 
         return informationArray
+    }
+    
+    func getMapAnnottaion() -> MapBreweryAnnotation? {
+        return MapBreweryAnnotation.init(name: name, address: street, latitude: latitude, longitude: longitude)
     }
     
     fileprivate func configureInfoForDisplay(desc: String,

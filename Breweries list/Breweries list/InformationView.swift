@@ -12,7 +12,6 @@ class InformationView: UIView {
 
     @IBOutlet fileprivate var contentView: UIView!
     @IBOutlet fileprivate weak var descriptionLabel: UILabel!
-    @IBOutlet fileprivate weak var informationLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

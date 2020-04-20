@@ -71,9 +71,20 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BreweriesTableViewCell") as! BreweriesTableViewCell
-        cell.configureCell(tableViewWidth: tableView.bounds.width, brewery: arrayOfBreweries[indexPath.row])
+        cell.configureCell(tableViewWidth: tableView.bounds.width,
+                           brewery: arrayOfBreweries[indexPath.row],
+                           openMapDelegate: self)
         return cell
     }
     
     
+}
+
+extension ViewController: ShowOnMapDelegate {
+    func showOnMap(annotation: MapBreweryAnnotation) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapVC") as! MapVC
+        mapVC.mapAnnotation = annotation
+        self.navigationController?.pushViewController(mapVC, animated: true)
+    }
 }

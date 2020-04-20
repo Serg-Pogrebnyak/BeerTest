@@ -10,6 +10,10 @@
 		0BA5C75A244B677000EBD486 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C759244B677000EBD486 /* ColorExtension.swift */; };
 		0BA5C75C244B767E00EBD486 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5C75B244B767E00EBD486 /* InformationView.xib */; };
 		0BA5C75E244B768B00EBD486 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C75D244B768B00EBD486 /* InformationView.swift */; };
+		0BA5C760244D9FA900EBD486 /* MapButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5C75F244D9FA900EBD486 /* MapButtonView.xib */; };
+		0BA5C762244D9FBA00EBD486 /* MapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C761244D9FBA00EBD486 /* MapButtonView.swift */; };
+		0BA5C764244DA58E00EBD486 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C763244DA58E00EBD486 /* MapVC.swift */; };
+		0BA5C766244DA76500EBD486 /* MapBreweryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */; };
 		0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F682448B64D00478E28 /* AppDelegate.swift */; };
 		0BE78F6D2448B64D00478E28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F6C2448B64D00478E28 /* ViewController.swift */; };
 		0BE78F702448B64D00478E28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F6E2448B64D00478E28 /* Main.storyboard */; };
@@ -18,7 +22,7 @@
 		0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */; };
 		0BE78F7F2448B80900478E28 /* BreweriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */; };
 		0BE78F812448BA7100478E28 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F802448BA7100478E28 /* API.swift */; };
-		0BE78F832448C0AA00478E28 /* Breweries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F822448C0AA00478E28 /* Breweries.swift */; };
+		0BE78F832448C0AA00478E28 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F822448C0AA00478E28 /* Brewery.swift */; };
 		0BE78F852448CE2000478E28 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F842448CE2000478E28 /* TitleView.swift */; };
 		0BE78F872448CE2B00478E28 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F862448CE2B00478E28 /* TitleView.xib */; };
 		D7FBDBC84F8378951BC42D6C /* Pods_Breweries_list.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2D10CBD4E3F9032D40FE28 /* Pods_Breweries_list.framework */; };
@@ -28,6 +32,10 @@
 		0BA5C759244B677000EBD486 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		0BA5C75B244B767E00EBD486 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
 		0BA5C75D244B768B00EBD486 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		0BA5C75F244D9FA900EBD486 /* MapButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapButtonView.xib; sourceTree = "<group>"; };
+		0BA5C761244D9FBA00EBD486 /* MapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonView.swift; sourceTree = "<group>"; };
+		0BA5C763244DA58E00EBD486 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBreweryAnnotation.swift; sourceTree = "<group>"; };
 		0BE78F652448B64D00478E28 /* Breweries list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breweries list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE78F682448B64D00478E28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BE78F6C2448B64D00478E28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,7 +46,7 @@
 		0BE78F7C2448B80900478E28 /* BreweriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweriesTableViewCell.swift; sourceTree = "<group>"; };
 		0BE78F7D2448B80900478E28 /* BreweriesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweriesTableViewCell.xib; sourceTree = "<group>"; };
 		0BE78F802448BA7100478E28 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		0BE78F822448C0AA00478E28 /* Breweries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breweries.swift; sourceTree = "<group>"; };
+		0BE78F822448C0AA00478E28 /* Brewery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		0BE78F842448CE2000478E28 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		0BE78F862448CE2B00478E28 /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
 		10B1255BDE3FA91A3BB3EBF5 /* Pods-Breweries list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breweries list.release.xcconfig"; path = "Target Support Files/Pods-Breweries list/Pods-Breweries list.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,10 +98,14 @@
 				0BE78F842448CE2000478E28 /* TitleView.swift */,
 				0BE78F862448CE2B00478E28 /* TitleView.xib */,
 				0BE78F802448BA7100478E28 /* API.swift */,
-				0BE78F822448C0AA00478E28 /* Breweries.swift */,
+				0BE78F822448C0AA00478E28 /* Brewery.swift */,
 				0BA5C759244B677000EBD486 /* ColorExtension.swift */,
 				0BA5C75B244B767E00EBD486 /* InformationView.xib */,
 				0BA5C75D244B768B00EBD486 /* InformationView.swift */,
+				0BA5C75F244D9FA900EBD486 /* MapButtonView.xib */,
+				0BA5C761244D9FBA00EBD486 /* MapButtonView.swift */,
+				0BA5C763244DA58E00EBD486 /* MapVC.swift */,
+				0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */,
 			);
 			path = "Breweries list";
 			sourceTree = "<group>";
@@ -176,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BE78F752448B65000478E28 /* LaunchScreen.storyboard in Resources */,
+				0BA5C760244D9FA900EBD486 /* MapButtonView.xib in Resources */,
 				0BE78F722448B65000478E28 /* Assets.xcassets in Resources */,
 				0BE78F7F2448B80900478E28 /* BreweriesTableViewCell.xib in Resources */,
 				0BA5C75C244B767E00EBD486 /* InformationView.xib in Resources */,
@@ -235,10 +248,13 @@
 			files = (
 				0BE78F6D2448B64D00478E28 /* ViewController.swift in Sources */,
 				0BA5C75E244B768B00EBD486 /* InformationView.swift in Sources */,
+				0BA5C762244D9FBA00EBD486 /* MapButtonView.swift in Sources */,
 				0BE78F7E2448B80900478E28 /* BreweriesTableViewCell.swift in Sources */,
-				0BE78F832448C0AA00478E28 /* Breweries.swift in Sources */,
+				0BE78F832448C0AA00478E28 /* Brewery.swift in Sources */,
+				0BA5C764244DA58E00EBD486 /* MapVC.swift in Sources */,
 				0BE78F812448BA7100478E28 /* API.swift in Sources */,
 				0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */,
+				0BA5C766244DA76500EBD486 /* MapBreweryAnnotation.swift in Sources */,
 				0BA5C75A244B677000EBD486 /* ColorExtension.swift in Sources */,
 				0BE78F852448CE2000478E28 /* TitleView.swift in Sources */,
 			);

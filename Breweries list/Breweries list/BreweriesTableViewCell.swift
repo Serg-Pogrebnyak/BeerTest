@@ -18,21 +18,29 @@ class BreweriesTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var borderView: UIView!
     @IBOutlet fileprivate weak var elementsStackView: UIStackView!
     
-    func configureCell(tableViewWidth: CGFloat, brewery: Brewery) {
+    func configureCell(tableViewWidth: CGFloat, brewery: Brewery, openMapDelegate: ShowOnMapDelegate?) {
         elementsStackView.removeAllArrangedSubviews()
         let frame = CGRect.init(x: 0,
                                 y: 0,
                                 width: getElementWidth(rootWidth: tableViewWidth),
                                 height: 15)
-        let titleView = TitleView.init(frame: frame)
+        let titleView = TitleView(frame: frame)
         titleView.setData(title: brewery.getName())
         
         elementsStackView.addArrangedSubview(titleView)
         for inform in brewery.getInformationForDisplay() {
-            let informationView = InformationView.init(frame: frame)
+            let informationView = InformationView(frame: frame)
             informationView.setData(attributedInfo: inform)
             elementsStackView.addArrangedSubview(informationView)
         }
+        
+        if let mapAnnotation = brewery.getMapAnnottaion() {
+            let mapButtonView = MapButtonView(frame: frame)
+            mapButtonView.delegate = openMapDelegate
+            mapButtonView.setData(annotation: mapAnnotation)
+            elementsStackView.addArrangedSubview(mapButtonView)
+        }
+        
         
         borderView.layer.backgroundColor = UIColor.tableViewCellBackground.cgColor
         borderView.layer.borderColor = UIColor.ownGreen.cgColor
