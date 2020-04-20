@@ -18,7 +18,7 @@ class BreweriesTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var borderView: UIView!
     @IBOutlet fileprivate weak var elementsStackView: UIStackView!
     
-    func configureCell(tableViewWidth: CGFloat, brewery: Brewery, openMapDelegate: ShowOnMapDelegate?) {
+    func configureCell(tableViewWidth: CGFloat, brewery: Brewery, openMapDelegate: ShowBreweryInfoDelegate?) {
         elementsStackView.removeAllArrangedSubviews()
         let frame = CGRect.init(x: 0,
                                 y: 0,
@@ -34,10 +34,17 @@ class BreweriesTableViewCell: UITableViewCell {
             elementsStackView.addArrangedSubview(informationView)
         }
         
-        if let mapAnnotation = brewery.getMapAnnottaion() {
+        if let tupleInfo = brewery.getWebSiteForDisplay(), openMapDelegate != nil {
+            let informationView = InformationView(frame: frame)
+            informationView.setAsWebSite(webSite: tupleInfo.informationForDisplay,
+                                         delegate: openMapDelegate!,
+                                         url: tupleInfo.webSiteURL)
+            elementsStackView.addArrangedSubview(informationView)
+        }
+        
+        if let mapAnnotation = brewery.getMapAnnottaion(), openMapDelegate != nil {
             let mapButtonView = MapButtonView(frame: frame)
-            mapButtonView.delegate = openMapDelegate
-            mapButtonView.setData(annotation: mapAnnotation)
+            mapButtonView.setData(annotation: mapAnnotation, delegate: openMapDelegate!)
             elementsStackView.addArrangedSubview(mapButtonView)
         }
         

@@ -59,6 +59,17 @@ struct Brewery {
         return self.name
     }
     
+    func getWebSiteForDisplay() -> (informationForDisplay: NSAttributedString, webSiteURL: URL)? {
+        if website_url != nil && !website_url!.isEmpty, let webSiteURL = URL(string: website_url!) {
+            let siteInfo = configureInfoForDisplay(desc: "Website: ",
+                                                   info: website_url!,
+                                                   shouldUnderlineInfo: true)
+            return (siteInfo, webSiteURL)
+        } else {
+            return nil
+        }
+    }
+    
     func getInformationForDisplay() -> [NSAttributedString] {
         var informationArray = [NSAttributedString]()
 
@@ -81,12 +92,6 @@ struct Brewery {
         if street != nil && !street!.isEmpty {
             let streetInfo = configureInfoForDisplay(desc: "Street: ", info: street!)
             informationArray.append(streetInfo)
-        }
-        if website_url != nil && !website_url!.isEmpty {
-            let siteInfo = configureInfoForDisplay(desc: "Website: ",
-                                                   info: website_url!,
-                                                   shouldUnderlineInfo: true)
-            informationArray.append(siteInfo)
         }
 
         return informationArray

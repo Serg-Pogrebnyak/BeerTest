@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol ShowOnMapDelegate: class {
+protocol ShowBreweryInfoDelegate: class {
     func showOnMap(annotation: MapBreweryAnnotation)
+    func tapOnWebSiteLabel(url: URL)
 }
 
 class MapButtonView: UIView {
@@ -18,8 +19,7 @@ class MapButtonView: UIView {
     @IBOutlet fileprivate weak var mapButton: UIButton!
     
     fileprivate var mapAnnotation: MapBreweryAnnotation!
-    
-    weak var delegate: ShowOnMapDelegate?
+    fileprivate weak var delegate: ShowBreweryInfoDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +35,8 @@ class MapButtonView: UIView {
         delegate?.showOnMap(annotation: mapAnnotation)
     }
     
-    func setData(annotation: MapBreweryAnnotation) {
+    func setData(annotation: MapBreweryAnnotation, delegate: ShowBreweryInfoDelegate) {
+        self.delegate = delegate
         self.mapAnnotation = annotation
     }
     

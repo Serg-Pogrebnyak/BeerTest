@@ -87,11 +87,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MXm-qJ-nQ6">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2s-Pc-Jwf">
+                                <rect key="frame" x="30" y="74" width="39" height="30"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="V8l-jw-C41" eventType="touchUpInside" id="MH0-4T-cCD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SjS-HL-foD" firstAttribute="trailing" secondItem="MXm-qJ-nQ6" secondAttribute="trailing" id="ARP-Hl-DPL"/>
                             <constraint firstAttribute="bottom" secondItem="MXm-qJ-nQ6" secondAttribute="bottom" id="CMU-Cb-O69"/>
+                            <constraint firstItem="z2s-Pc-Jwf" firstAttribute="leading" secondItem="SjS-HL-foD" secondAttribute="leading" constant="30" id="SYS-mp-yhj"/>
+                            <constraint firstItem="z2s-Pc-Jwf" firstAttribute="top" secondItem="SjS-HL-foD" secondAttribute="top" constant="30" id="ZhO-uk-3NQ"/>
                             <constraint firstItem="MXm-qJ-nQ6" firstAttribute="leading" secondItem="SjS-HL-foD" secondAttribute="leading" id="dkm-Y4-hbR"/>
                             <constraint firstItem="MXm-qJ-nQ6" firstAttribute="top" secondItem="SjS-HL-foD" secondAttribute="top" id="uwu-Zv-arU"/>
                         </constraints>

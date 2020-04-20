@@ -15,14 +15,4 @@ extension UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
-    
-    func setWhiteBackButton () {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonDidTap))
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes(textAttributes, for: .normal)
-    }
-    
-    @objc fileprivate func backButtonDidTap() {
-        self.navigationController?.popViewController(animated: true)
-    }
 }

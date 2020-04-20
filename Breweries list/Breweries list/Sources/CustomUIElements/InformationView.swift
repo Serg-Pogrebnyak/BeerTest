@@ -13,6 +13,9 @@ class InformationView: UIView {
     @IBOutlet fileprivate var contentView: UIView!
     @IBOutlet fileprivate weak var descriptionLabel: UILabel!
     
+    fileprivate weak var delegate: ShowBreweryInfoDelegate?
+    fileprivate var url: URL!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -25,6 +28,20 @@ class InformationView: UIView {
     
     func setData(attributedInfo: NSAttributedString) {
         descriptionLabel.attributedText = attributedInfo
+    }
+    
+    func setAsWebSite(webSite: NSAttributedString, delegate: ShowBreweryInfoDelegate, url: URL) {
+        self.url = url
+        self.delegate = delegate
+        descriptionLabel.attributedText = webSite
+        let fGuesture = UITapGestureRecognizer(target: self, action: #selector(didTapOnLabel))
+        descriptionLabel.addGestureRecognizer(fGuesture)
+        descriptionLabel.isUserInteractionEnabled = true
+    }
+    
+    @objc fileprivate func didTapOnLabel() {
+        guard url != nil else {return}
+        delegate?.tapOnWebSiteLabel(url: url)
     }
     
     fileprivate func commonInit() {

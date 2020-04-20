@@ -19,9 +19,7 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUINavigationBar()
-        setWhiteBackButton()
-        
+              
         mapView.addAnnotation(mapAnnotation)
         let coordinateRegion = MKCoordinateRegion(center: mapAnnotation.coordinate,
                                                   latitudinalMeters: regionAroundPoint,
@@ -29,4 +27,7 @@ class MapVC: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
 
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

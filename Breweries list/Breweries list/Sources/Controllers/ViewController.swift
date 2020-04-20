@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
 
@@ -40,28 +41,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    func mockedData() {
-        let brewery1 = (Brewery.init(name: "Almanac Beer Company",
-                                     id: "34",
-                                     updatedAt: "234",
-                                     phone: "4159326531",
-                                     webSite: "http://almanacbeer.com"))
-        arrayOfBreweries.append(brewery1)
-        let brewery2 = (Brewery.init(name: "Almanac Beer Company 2",
-                                     id: "34",
-                                     updatedAt: "234",
-                                     phone: "4159326531",
-                                     latitude: "33.524521",
-                                     longitude: "-86.774322",
-                                     country: "United States",
-                                     state: "United States",
-                                     city: "Alameda",
-                                     street: "651B W Tower Ave"))
-        arrayOfBreweries.append(brewery2)
-    }
-
-
 }
 
 extension ViewController: UITableViewDelegate {
@@ -87,12 +66,20 @@ extension ViewController: UITableViewDataSource {
     
 }
 
-extension ViewController: ShowOnMapDelegate {
+extension ViewController: ShowBreweryInfoDelegate {
+    func tapOnWebSiteLabel(url: URL) {
+        let config = SFSafariViewController.Configuration()
+        config.entersReaderIfAvailable = true
+
+        let vc = SFSafariViewController(url: url, configuration: config)
+        present(vc, animated: true)
+    }
+    
     func showOnMap(annotation: MapBreweryAnnotation) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapVC") as! MapVC
         mapVC.mapAnnotation = annotation
-        self.navigationController?.pushViewController(mapVC, animated: true)
+        present(mapVC, animated: true)
     }
 }
 
