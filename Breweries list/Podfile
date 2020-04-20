@@ -7,4 +7,5 @@ target 'Breweries list' do
 
   pod 'SwiftyJSON', '5.0.0'
 
+
 end

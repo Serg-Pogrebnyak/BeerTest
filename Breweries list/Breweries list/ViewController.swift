@@ -10,11 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet fileprivate weak var searchBar: UISearchBar!
     @IBOutlet fileprivate weak var breweriesTableView: UITableView!
     fileprivate var arrayOfBreweries = [Brewery]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.ownGreen
+        //setup UISearch bar custom UI
+        searchBar.setClearBackgroundView()
+        searchBar.setSearchBarTextFieldColor(UIColor.white)
         //configure navigation bar
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.ownGreen
@@ -47,8 +52,8 @@ class ViewController: UIViewController {
                                      id: "34",
                                      updatedAt: "234",
                                      phone: "4159326531",
-                                     latitude: "djnfs",
-                                     longitude: "sdflknsdf",
+                                     latitude: "33.524521",
+                                     longitude: "-86.774322",
                                      country: "United States",
                                      state: "United States",
                                      city: "Alameda",

@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="180" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KEK-9R-IQh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreweriesTableViewCell" rowHeight="180" id="NEG-SP-cAL">
                                         <rect key="frame" x="0.0" y="28" width="414" height="180"/>
@@ -49,12 +49,19 @@
                                     <outlet property="delegate" destination="TlB-qz-8cH" id="UgE-X0-OiP"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xl6-dU-FiE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="xl6-dU-FiE" firstAttribute="top" secondItem="iah-6G-YpI" secondAttribute="top" id="6Lm-Uw-BMK"/>
                             <constraint firstItem="KEK-9R-IQh" firstAttribute="trailing" secondItem="iah-6G-YpI" secondAttribute="trailing" id="LsI-w5-DeZ"/>
-                            <constraint firstItem="KEK-9R-IQh" firstAttribute="top" secondItem="iah-6G-YpI" secondAttribute="top" id="PRs-wJ-Wku"/>
+                            <constraint firstItem="xl6-dU-FiE" firstAttribute="trailing" secondItem="iah-6G-YpI" secondAttribute="trailing" id="Rlo-fL-bDm"/>
+                            <constraint firstItem="xl6-dU-FiE" firstAttribute="leading" secondItem="iah-6G-YpI" secondAttribute="leading" id="Y1A-9o-zaP"/>
                             <constraint firstItem="KEK-9R-IQh" firstAttribute="leading" secondItem="iah-6G-YpI" secondAttribute="leading" id="bU4-uv-Zsu"/>
+                            <constraint firstItem="KEK-9R-IQh" firstAttribute="top" secondItem="xl6-dU-FiE" secondAttribute="bottom" id="dBp-gm-4g8"/>
                             <constraint firstAttribute="bottom" secondItem="KEK-9R-IQh" secondAttribute="bottom" id="m9A-JC-rvn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iah-6G-YpI"/>
@@ -62,6 +69,7 @@
                     <navigationItem key="navigationItem" title="Breweries" id="ELF-tl-OTx"/>
                     <connections>
                         <outlet property="breweriesTableView" destination="KEK-9R-IQh" id="CRZ-15-nb1"/>
+                        <outlet property="searchBar" destination="xl6-dU-FiE" id="xd0-Cj-9Fk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6O0-FM-hcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
