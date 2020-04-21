@@ -45,7 +45,7 @@ class CoreManager {
                 try self.coreManagerContext.save()
                 print("✅saved")
             } catch {
-                print("❌some error when save data")
+                print("❌some error - save data")
             }
         }
     }

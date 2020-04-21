@@ -18,6 +18,8 @@
 		0BA5C766244DA76500EBD486 /* MapBreweryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */; };
 		0BE2E5D7244E02F700A8CD32 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2E5D5244E02F700A8CD32 /* CoreDataModel.xcdatamodeld */; };
 		0BE2E5D9244E050600A8CD32 /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2E5D8244E050600A8CD32 /* CoreManager.swift */; };
+		0BE2E5DE244EB5A200A8CD32 /* BackgroundTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE2E5DD244EB5A200A8CD32 /* BackgroundTableView.xib */; };
+		0BE2E5E0244EB70D00A8CD32 /* BackgroundTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2E5DF244EB70D00A8CD32 /* BackgroundTableView.swift */; };
 		0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F682448B64D00478E28 /* AppDelegate.swift */; };
 		0BE78F6D2448B64D00478E28 /* ListOfBreweriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE78F6C2448B64D00478E28 /* ListOfBreweriesVC.swift */; };
 		0BE78F702448B64D00478E28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE78F6E2448B64D00478E28 /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		0BA5C765244DA76500EBD486 /* MapBreweryAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBreweryAnnotation.swift; sourceTree = "<group>"; };
 		0BE2E5D6244E02F700A8CD32 /* Brewery.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Brewery.xcdatamodel; sourceTree = "<group>"; };
 		0BE2E5D8244E050600A8CD32 /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
+		0BE2E5DD244EB5A200A8CD32 /* BackgroundTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundTableView.xib; sourceTree = "<group>"; };
+		0BE2E5DF244EB70D00A8CD32 /* BackgroundTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTableView.swift; sourceTree = "<group>"; };
 		0BE78F652448B64D00478E28 /* Breweries list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breweries list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE78F682448B64D00478E28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BE78F6C2448B64D00478E28 /* ListOfBreweriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBreweriesVC.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				0BE78F862448CE2B00478E28 /* TitleView.xib */,
 				0BA5C75F244D9FA900EBD486 /* MapButtonView.xib */,
 				0BA5C75B244B767E00EBD486 /* InformationView.xib */,
+				0BE2E5DD244EB5A200A8CD32 /* BackgroundTableView.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				0BE78F842448CE2000478E28 /* TitleView.swift */,
 				0BA5C75D244B768B00EBD486 /* InformationView.swift */,
 				0BA5C761244D9FBA00EBD486 /* MapButtonView.swift */,
+				0BE2E5DF244EB70D00A8CD32 /* BackgroundTableView.swift */,
 			);
 			path = CustomUIElements;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				0BE78F752448B65000478E28 /* LaunchScreen.storyboard in Resources */,
 				0BA5C760244D9FA900EBD486 /* MapButtonView.xib in Resources */,
 				0BE78F722448B65000478E28 /* Assets.xcassets in Resources */,
+				0BE2E5DE244EB5A200A8CD32 /* BackgroundTableView.xib in Resources */,
 				0BE78F7F2448B80900478E28 /* BreweriesTableViewCell.xib in Resources */,
 				0BA5C75C244B767E00EBD486 /* InformationView.xib in Resources */,
 				0BE78F872448CE2B00478E28 /* TitleView.xib in Resources */,
@@ -373,6 +380,7 @@
 				0BE2E5D7244E02F700A8CD32 /* CoreDataModel.xcdatamodeld in Sources */,
 				0BE78F832448C0AA00478E28 /* Brewery.swift in Sources */,
 				0BA5C764244DA58E00EBD486 /* MapVC.swift in Sources */,
+				0BE2E5E0244EB70D00A8CD32 /* BackgroundTableView.swift in Sources */,
 				0BE78F812448BA7100478E28 /* API.swift in Sources */,
 				0BE78F692448B64D00478E28 /* AppDelegate.swift in Sources */,
 				0BE2E5D9244E050600A8CD32 /* CoreManager.swift in Sources */,

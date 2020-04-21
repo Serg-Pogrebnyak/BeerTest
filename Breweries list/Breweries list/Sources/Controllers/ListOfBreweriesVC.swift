@@ -34,6 +34,7 @@ class ListOfBreweriesVC: UIViewController {
         //register table view cell
         let nib = UINib.init(nibName: "BreweriesTableViewCell", bundle: nil)
         breweriesTableView.register(nib, forCellReuseIdentifier: "BreweriesTableViewCell")
+        breweriesTableView.backgroundView = BackgroundTableView()
         
         tapOnTableViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(finishEnterText))
         breweriesTableView.addGestureRecognizer(tapOnTableViewGestureRecognizer)
