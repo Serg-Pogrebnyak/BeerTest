@@ -96,8 +96,6 @@ extension ListOfBreweriesVC: UITableViewDataSource {
                            openMapDelegate: self)
         return cell
     }
-    
-    
 }
 
 extension ListOfBreweriesVC: ShowBreweryInfoDelegate {

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftyJSON
 
 class CoreManager {
     static var shared = CoreManager()
@@ -45,6 +46,38 @@ class CoreManager {
                 print("✅saved")
             } catch {
                 print("❌some error when save data")
+            }
+        }
+    }
+    
+    func mergeDataWithLocalBreweries(jsonArray: [JSON], callback: @escaping ([Brewery]?) -> Void) {
+        CoreManager.shared.coreManagerContext.perform {
+            do {
+                var returnedArray = [Brewery]()
+                let localEntityArray = try CoreManager.shared.coreManagerContext.fetch(Brewery.fetchRequest()) as! [Brewery]
+                
+                for jsonObject in jsonArray {
+                    let newObjectID = jsonObject["id"].stringValue
+                    var hasElemetInStorage = false
+                    for localEntity in localEntityArray {
+                        if localEntity.id == newObjectID {
+                            hasElemetInStorage = true
+                            returnedArray.append(localEntity)
+                            break
+                        }
+                    }
+                    
+                    if !hasElemetInStorage {
+                        let newObject = Brewery.init(fromJson: jsonObject)
+                        returnedArray.append(newObject)
+                    }
+                }
+                CoreManager.shared.saveContext()
+                callback(returnedArray)
+            } catch {
+                let nserror = error as NSError
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
+                callback(nil)
             }
         }
     }

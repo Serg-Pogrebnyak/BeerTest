@@ -29,31 +29,8 @@ class API {
                 return
             }
             
-            CoreManager.shared.coreManagerContext.perform {
-                do {
-                    let localEntityArray = try CoreManager.shared.coreManagerContext.fetch(Brewery.fetchRequest()) as! [Brewery]
-                    
-                    for jsonObject in arrayOfJson {
-                        let newObjectID = jsonObject["id"].stringValue
-                        var hasElemetInStorage = false
-                        for localEntity in localEntityArray {
-                            if localEntity.id == newObjectID {
-                                hasElemetInStorage = true
-                                break
-                            }
-                        }
-                        
-                        if !hasElemetInStorage {
-                            _ = Brewery.init(fromJson: jsonObject)
-                        }
-                    }
-                    CoreManager.shared.saveContext()
-                    callback(true)
-                } catch {
-                    let nserror = error as NSError
-                    print("Unresolved error \(nserror), \(nserror.userInfo)")
-                    callback(false)
-                }
+            CoreManager.shared.mergeDataWithLocalBreweries(jsonArray: arrayOfJson) { (newData) in
+                callback(newData == nil ? false : true)
             }
         }
     }
@@ -65,34 +42,8 @@ class API {
                 return
             }
             
-            CoreManager.shared.coreManagerContext.perform {
-                do {
-                    var returnedArray = [Brewery]()
-                    let localEntityArray = try CoreManager.shared.coreManagerContext.fetch(Brewery.fetchRequest()) as! [Brewery]
-                    
-                    for jsonObject in arrayOfJson {
-                        let newObjectID = jsonObject["id"].stringValue
-                        var hasElemetInStorage = false
-                        for localEntity in localEntityArray {
-                            if localEntity.id == newObjectID {
-                                hasElemetInStorage = true
-                                returnedArray.append(localEntity)
-                                break
-                            }
-                        }
-                        
-                        if !hasElemetInStorage {
-                            let newObject = Brewery.init(fromJson: jsonObject)
-                            returnedArray.append(newObject)
-                        }
-                    }
-                    CoreManager.shared.saveContext()
-                    callback(returnedArray)
-                } catch {
-                    let nserror = error as NSError
-                    print("Unresolved error \(nserror), \(nserror.userInfo)")
-                    callback(nil)
-                }
+            CoreManager.shared.mergeDataWithLocalBreweries(jsonArray: arrayOfJson) { (newData) in
+                callback(newData)
             }
         }
     }
