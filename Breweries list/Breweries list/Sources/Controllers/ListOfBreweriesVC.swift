@@ -62,6 +62,7 @@ class ListOfBreweriesVC: UIViewController {
         searchBar.delegate = self
         searchBar.setClearBackgroundView()
         searchBar.setSearchBarTextFieldColor(UIColor.white)
+        searchBar.placeholder = "Search"
         //configure navigation bar
         setupUINavigationBar()
         //register table view cell
