@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol ShowBreweryInfoDelegate: class {
-    func showOnMap(annotation: MapBreweryAnnotation)
-    func tapOnWebSiteLabel(url: URL)
-}
-
 class MapButtonView: UIView {
     
     @IBOutlet fileprivate var contentView: UIView!
@@ -49,5 +44,4 @@ class MapButtonView: UIView {
         mapButton.tintColor = UIColor.white
         mapButton.layer.cornerRadius = 5.0
     }
-
 }

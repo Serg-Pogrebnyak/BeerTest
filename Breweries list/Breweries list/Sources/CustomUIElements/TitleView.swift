@@ -32,6 +32,6 @@ class TitleView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        titleLabel.textColor = UIColor.init(red: 69.0/255.0, green: 69.0/255.0, blue: 69.0/255.0, alpha: 1.0)
+        titleLabel.textColor = UIColor.titleCell
     }
 }

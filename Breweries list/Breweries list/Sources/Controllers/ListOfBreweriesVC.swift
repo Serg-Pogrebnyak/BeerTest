@@ -24,26 +24,11 @@ class ListOfBreweriesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.ownGreen
-        //configure UISearch bar
-        searchBar.delegate = self
-        searchBar.setClearBackgroundView()
-        searchBar.setSearchBarTextFieldColor(UIColor.white)
-        //configure navigation bar
-        setupUINavigationBar()
-        //register table view cell
-        let nib = UINib.init(nibName: "BreweriesTableViewCell", bundle: nil)
-        breweriesTableView.register(nib, forCellReuseIdentifier: "BreweriesTableViewCell")
-        breweriesTableView.backgroundView = BackgroundTableView()
-        
-        tapOnTableViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(finishEnterText))
-        breweriesTableView.addGestureRecognizer(tapOnTableViewGestureRecognizer)
-        //get data
-        arrayOfBreweries = CoreManager.shared.getBreweriesFromCoreData()
-        
-        fetchAllDataFromAPI()
+        setupUI()
     }
     
+    //MARK: - filepivate functions
+    //MARK: API and local storage functions
     fileprivate func fetchAllDataFromAPI() {
         API.shared.getAllBreweries{ [weak self] (success) in
             if success {
@@ -70,19 +55,40 @@ class ListOfBreweriesVC: UIViewController {
             }
         }
     }
+    //MARK: UI functions
+    fileprivate func setupUI() {
+        self.view.backgroundColor = UIColor.ownGreen
+        //configure UISearch bar
+        searchBar.delegate = self
+        searchBar.setClearBackgroundView()
+        searchBar.setSearchBarTextFieldColor(UIColor.white)
+        //configure navigation bar
+        setupUINavigationBar()
+        //register table view cell
+        let nib = UINib.init(nibName: "BreweriesTableViewCell", bundle: nil)
+        breweriesTableView.register(nib, forCellReuseIdentifier: "BreweriesTableViewCell")
+        breweriesTableView.backgroundView = BackgroundTableView()
+        
+        tapOnTableViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(finishEnterText))
+        breweriesTableView.addGestureRecognizer(tapOnTableViewGestureRecognizer)
+        //get data
+        arrayOfBreweries = CoreManager.shared.getBreweriesFromCoreData()
+        fetchAllDataFromAPI()
+    }
     
     @objc fileprivate func finishEnterText() {
         searchBar.endEditing(true)
+        tapOnTableViewGestureRecognizer.isEnabled = false
     }
-    
 }
 
+//MARK: - UITableViewDelegate
 extension ListOfBreweriesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
-
+//MARK: - UITableViewDataSource
 extension ListOfBreweriesVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,11 +104,10 @@ extension ListOfBreweriesVC: UITableViewDataSource {
         return cell
     }
 }
-
+//MARK: - ShowBreweryInfoDelegate
 extension ListOfBreweriesVC: ShowBreweryInfoDelegate {
     func tapOnWebSiteLabel(url: URL) {
-        tapOnTableViewGestureRecognizer.isEnabled = false
-        searchBar.endEditing(true)
+        finishEnterText()
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
 
@@ -111,15 +116,14 @@ extension ListOfBreweriesVC: ShowBreweryInfoDelegate {
     }
     
     func showOnMap(annotation: MapBreweryAnnotation) {
-        tapOnTableViewGestureRecognizer.isEnabled = false
-        searchBar.endEditing(true)
+        finishEnterText()
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapVC") as! MapVC
         mapVC.mapAnnotation = annotation
         present(mapVC, animated: true)
     }
 }
-
+//MARK: - UISearchBarDelegate
 extension ListOfBreweriesVC: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         tapOnTableViewGestureRecognizer.isEnabled = true
@@ -130,8 +134,7 @@ extension ListOfBreweriesVC: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        tapOnTableViewGestureRecognizer.isEnabled = false
-        self.searchBar.resignFirstResponder()
+        finishEnterText()
         guard let searchText = searchBar.text else {return}
         searchDataInAPI(text: searchText)
     }

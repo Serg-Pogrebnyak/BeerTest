@@ -26,10 +26,6 @@ class Brewery: NSManagedObject {
     @NSManaged public var longitude: String?
     @NSManaged public var website_url: String?
     
-    private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: context)
-    }
-    
     init(fromJson json:JSON) {
         let entity = NSEntityDescription.entity(forEntityName: "Brewery",
                                                 in: CoreManager.shared.coreManagerContext)!
@@ -47,11 +43,7 @@ class Brewery: NSManagedObject {
         self.state = json["state"].string
         self.website_url = json["website_url"].string
     }
-    
-    @nonobjc public func fetchRequest() -> NSFetchRequest<Brewery> {
-        return NSFetchRequest<Brewery>(entityName: "Brewery")
-    }
-    
+    //functions for get data about brewery
     func getName() -> String {
         return self.name
     }
@@ -97,14 +89,14 @@ class Brewery: NSManagedObject {
     func getMapAnnottaion() -> MapBreweryAnnotation? {
         return MapBreweryAnnotation.init(name: name, address: street, latitude: latitude, longitude: longitude)
     }
-    
+    //fileprivate functions
     fileprivate func configureInfoForDisplay(desc: String,
                                              info: String,
                                              shouldUnderlineInfo: Bool = false) -> NSAttributedString {
-        let attributeForDesc = [ NSAttributedString.Key.foregroundColor: UIColor.init(red: 139.0/255.0, green: 139.0/255.0, blue: 139.0/255.0, alpha: 1.0) ]
+        let attributeForDesc = [ NSAttributedString.Key.foregroundColor: UIColor.textInfo ]
         let attributedDescString = NSMutableAttributedString(string: desc, attributes: attributeForDesc)
         
-        var attributeForInfo: [NSAttributedString.Key : Any] = [ NSAttributedString.Key.foregroundColor: UIColor.init(red: 69.0/255.0, green: 69.0/255.0, blue: 69.0/255.0, alpha: 1.0) ]
+        var attributeForInfo: [NSAttributedString.Key : Any] = [ NSAttributedString.Key.foregroundColor: UIColor.textDesc ]
         
         if shouldUnderlineInfo {
             attributeForInfo[NSAttributedString.Key.underlineStyle] = NSUnderlineStyle.single.rawValue
@@ -114,5 +106,14 @@ class Brewery: NSManagedObject {
         attributedDescString.append(attributedInfoString)
 
         return attributedDescString
+    }
+    
+    //MARK: core data functions
+    @nonobjc public func fetchRequest() -> NSFetchRequest<Brewery> {
+        return NSFetchRequest<Brewery>(entityName: "Brewery")
+    }
+    
+    private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
 }

@@ -20,4 +20,16 @@ extension UIColor {
     static var transperent: UIColor {
         return UIColor.init(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.0)
     }
+    
+    static var textDesc: UIColor {
+        return UIColor.init(red: 69.0/255.0, green: 69.0/255.0, blue: 69.0/255.0, alpha: 1.0)
+    }
+    
+    static var textInfo: UIColor {
+        return UIColor.init(red: 139.0/255.0, green: 139.0/255.0, blue: 139.0/255.0, alpha: 1.0)
+    }
+    
+    static var titleCell: UIColor {
+        return UIColor.init(red: 69.0/255.0, green: 69.0/255.0, blue: 69.0/255.0, alpha: 1.0)
+    }
 }
