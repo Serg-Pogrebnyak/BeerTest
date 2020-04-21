@@ -15,6 +15,8 @@ class MapButtonView: UIView {
     
     fileprivate var mapAnnotation: MapBreweryAnnotation!
     fileprivate weak var delegate: ShowBreweryInfoDelegate?
+    //ui
+    fileprivate let cornerRadius: CGFloat = 5.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +44,6 @@ class MapButtonView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         mapButton.backgroundColor = UIColor.ownGreen
         mapButton.tintColor = UIColor.white
-        mapButton.layer.cornerRadius = 5.0
+        mapButton.layer.cornerRadius = cornerRadius
     }
 }

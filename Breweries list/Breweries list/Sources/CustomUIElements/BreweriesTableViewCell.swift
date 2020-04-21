@@ -17,13 +17,17 @@ class BreweriesTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var fromBorderViewToStackViewRight: NSLayoutConstraint!
     @IBOutlet fileprivate weak var borderView: UIView!
     @IBOutlet fileprivate weak var elementsStackView: UIStackView!
+    //ui
+    fileprivate let heigthOfStackElement: CGFloat = 15.0
+    fileprivate let borderWidth: CGFloat = 1.0
+    fileprivate let cornerRadius: CGFloat = 10.0
     
     func configureCell(tableViewWidth: CGFloat, brewery: Brewery, openMapDelegate: ShowBreweryInfoDelegate?) {
         elementsStackView.removeAllArrangedSubviews()
         let frame = CGRect.init(x: 0,
                                 y: 0,
                                 width: getElementWidth(rootWidth: tableViewWidth),
-                                height: 15)
+                                height: heigthOfStackElement)
         let titleView = TitleView(frame: frame)
         titleView.setData(title: brewery.getName())
         
@@ -51,8 +55,8 @@ class BreweriesTableViewCell: UITableViewCell {
         
         borderView.layer.backgroundColor = UIColor.tableViewCellBackground.cgColor
         borderView.layer.borderColor = UIColor.ownGreen.cgColor
-        borderView.layer.borderWidth = 1.0
-        borderView.layer.cornerRadius = 10
+        borderView.layer.borderWidth = borderWidth
+        borderView.layer.cornerRadius = cornerRadius
         
     }
     
